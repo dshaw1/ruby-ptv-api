@@ -1,8 +1,6 @@
 # RubyPtv
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby_ptv`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A ruby wrapper for the Public Transport Victoria API V3.
 
 ## Installation
 
@@ -20,9 +18,41 @@ Or install it yourself as:
 
     $ gem install ruby_ptv
 
+## Getting started
+
+You must have a valid PTV developer API key. If you don't have one, you can find out how to register for one [here](https://www.ptv.vic.gov.au/about-ptv/ptv-data-and-reports/digital-products/ptv-timetable-api).
+
 ## Usage
 
-TODO: Write usage instructions here
+Setup:
+
+``` ruby
+client = RubyPtv::Client.new(dev_id: "ID", secret_key: "SECRET")
+```
+
+### Optional global configuration:
+
+``` ruby
+client = RubyPtv.configure(
+  dev_id: "ID",
+  secret_key: "SECRET"
+)
+```
+You can get the global configuration with:
+
+``` ruby
+RubyPtv.configuration # => { dev_id: "YOUR_ID", secret_key "YOUR_SECRET }
+```
+
+In case you need to reset the configuration:
+
+```ruby
+RubyPtv.reset_configuration
+```
+
+## Examples
+
+
 
 ## Development
 
@@ -32,7 +62,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruby_ptv.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dshaw1/ruby-ptv-api.
 
 
 ## License
