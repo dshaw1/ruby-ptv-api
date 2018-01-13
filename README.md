@@ -52,13 +52,65 @@ RubyPtv.reset_configuration
 
 ## Examples
 
+### Departures
 
+You can search departures for all routes or for a single route. You can add any optional paramaters, as a hash, that are specified in the PTV api documentation (NOTE: the parameter keys MUST match the exact names specified by PTV).
 
-## Development
+```ruby
+client.departures(0, 1023, direction_id: 1)
+client.departures_for_route(0, 1127, 14)
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Searching departures will return a number of nested hashes due to the number of optional params available. You can loop through the results easily:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+response = client.departures(0, 1023)
+
+response["departures"].each do |departure|
+  departure["stop_id"]          # => stop id
+  departure["platform_number"]  # => platform number
+end
+```
+
+### Routes
+
+You can search all routes or search for a route with a specified route id. There are no optional paramters available for the routes methods.
+
+```ruby
+client.routes
+client.route(2)
+```
+
+Searching routes will return a single array of hashes:
+
+```ruby
+response = client.routes
+
+routes.each do |route|
+  route["route_type"]   # => route type
+  route["route_name"]   # => route name
+end
+```
+
+### Search
+
+The search method allows you to query any stops, routes and myki ticket outlets with a specified search term. Just like departures, you can add any optional paramters that are specified by the PTV documentation.
+
+```ruby
+client.search("Glen Waverley", route_types: 0)
+```
+
+### Further information
+
+The source code is fully commented with any required parameters and basic information you may need to use this wrapper. If you are unsure of any specifics of the API, such as any optional parameters available, check the official PTV documentation.
+
+## Testing
+
+To run the test suite:
+
+```
+bundle exec rake test
+```
 
 ## Contributing
 
