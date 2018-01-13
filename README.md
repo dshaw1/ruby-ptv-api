@@ -114,7 +114,7 @@ bundle exec rake test
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/dshaw1/ruby-ptv-api.
+Bug reports and pull requests are welcome. Just create a new branch for your feature, add the appropriate tests and open a pull request.
 
 
 ## License
