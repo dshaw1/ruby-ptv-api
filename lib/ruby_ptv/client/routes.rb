@@ -1,6 +1,6 @@
 module RubyPtv
   module Routes
-    # Get route details of all route type
+    # Get route details of all route types
     #
     # No required params
     #
