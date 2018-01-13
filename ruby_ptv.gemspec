@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dylan Shaw"]
   spec.email         = ["dylanshaw012@gmail.com"]
 
-  spec.summary       = "A wrapper for the Public Transport Victoria API written in Ruby. The official documentation is                            available here: https://timetableapi.ptv.vic.gov.au/swagger/ui/index."
-  spec.description   = "Add a description later.."
+  spec.summary       = "PTV api wrapper written in Ruby."
+  spec.description   = "A wrapper for the Public Transport Victoria API written in Ruby. The official documentation is                            available here: https://timetableapi.ptv.vic.gov.au/swagger/ui/index."
   spec.homepage      = "https://github.com/dshaw1/ruby-ptv-api"
   spec.license       = "MIT"
 
