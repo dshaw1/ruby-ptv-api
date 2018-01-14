@@ -84,7 +84,7 @@ client.route(2)
 Searching routes will return a single array of hashes:
 
 ```ruby
-response = client.routes
+routes = client.routes
 
 routes.each do |route|
   route["route_type"]   # => route type
