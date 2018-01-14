@@ -50,7 +50,7 @@ In case you need to reset the configuration:
 RubyPtv.reset_configuration
 ```
 
-## Examples
+## A few examples
 
 ### Departures
 
